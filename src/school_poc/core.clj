@@ -19,13 +19,7 @@
       component/start-system))
 
 (let [student (s.model/new-student "Hellyan" "123" 25)
-      ;student [{:student/name "Hellyan", :student/document "123", :student/age 25}]
       database (-> system-map :database)]
-  ;conn (d/connect "datomic:dev://localhost:4334/school")]
-  ;(clojure.pprint/pprint conn)
-  ;(clojure.pprint/pprint student)
-  (db/create-schema (:connection database))
-  ;(clojure.pprint/pprint (d/transact conn student))
   (clojure.pprint/pprint (s.actions/save-new-student
                            database student)))
 

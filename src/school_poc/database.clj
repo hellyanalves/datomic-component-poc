@@ -10,12 +10,13 @@
                  :db/cardinality :db.cardinality/one
                  :db/doc         "Student document number"}
                 {:db/ident       :student/age
-                 :db/valueType   :db.type/int
+                 :db/valueType   :db.type/long
                  :db/cardinality :db.cardinality/one
                  :db/doc         "Student age"}])
 
 (defn create-schema [conn]
-  (d/transact conn db-schema))
+  (d/transact conn db-schema)
+  conn)
 
 (defn insert-to-database [conn data]
   (d/transact conn data))

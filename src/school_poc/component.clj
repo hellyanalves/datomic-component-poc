@@ -8,6 +8,7 @@
   (start [component]
     (d/create-database db-uri)
     (->> (db/open-connection db-uri)
+         (db/create-schema)
          (assoc component :connection)))
   (stop [component]
    (assoc component :connection nil)))
